@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
+from contextlib import asynccontextmanager
 from google import genai
 from google.genai.types import GenerateContentConfig, Tool, Retrieval, VertexAISearch
 
@@ -15,10 +16,18 @@ MODEL = os.getenv("MODEL", "gemini-1.5-flash")
 DATASTORE_PATH = f"projects/wondersone/locations/global/collections/default_collection/dataStores/company-knowledge-base_1754880489912"
 
 app = FastAPI()
-client = genai.Client()  # 使用 Cloud Run 服務帳號的 ADC
+client = None
 
 class ChatIn(BaseModel):
     query: str
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global client
+    client = genai.Client()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/health")
 def health():
