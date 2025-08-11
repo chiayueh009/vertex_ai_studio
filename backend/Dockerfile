@@ -9,4 +9,4 @@ RUN pip install -U pip && pip install -r requirements.txt
 COPY . .
 
 # 用 $PORT 啟動服務
-CMD ["sh","-c","python -m uvicorn main:app --host 0.0.0.0 --port ${PORT:-8080}"]
+CMD ["sh","-c","python -m uvicorn main:app --host 0.0.0.0 --port ${PORT:-8083}"]
