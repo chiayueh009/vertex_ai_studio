@@ -1,0 +1,32 @@
+{
+  "name": "vertex_ai_studio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiayueh009/vertex_ai_studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chiayueh009/vertex_ai_studio/issues"
+  },
+  "homepage": "https://github.com/chiayueh009/vertex_ai_studio#readme",
+  "dependencies": {
+    "next": "^15.4.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "@types/react": "19.1.9",
+    "typescript": "5.9.2"
+  }
+}
